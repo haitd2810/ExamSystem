@@ -29,7 +29,13 @@ namespace WinAppTracNghiem
             Account acc = context.Accounts.Where(a => a.Username == txtUsername.Text && a.Password == txtPassword.Text).FirstOrDefault();
             if (acc.Role == 1)
             {
-
+                Manager manager = new Manager
+                {
+                    Text = "11_ExamSystem_Manager",
+                    acc = acc
+                };
+                this.Hide();
+                manager.ShowDialog();
             }
             else
             {
@@ -59,12 +65,28 @@ namespace WinAppTracNghiem
                 }
 
                 Practice practice = context.Practices.Where(p => p.Username == acc.Username && p.ExamCode == code.Code).FirstOrDefault();
-                if(practice != null)
+                if(practice != null &&(practice.Status.Equals("Doing") ||practice.Status.Equals("Done")))
                 {
                     MessageBox.Show("You have assigned this code");
                     return;
                 }
-                MessageBox.Show("Login SuccessFull");
+                Practice prac = new Practice
+                {
+                    Username = txtUsername.Text,
+                    ExamCode = txtCode.Text,
+                    TimeBegin = DateTime.Now,
+                    Status = "Doing"
+                };
+                context.Practices.Add(prac);
+                context.SaveChanges();
+                Exam exam = new Exam
+                {
+                    Text = "11_ExamSystem_Exam",
+                    username = txtUsername.Text,
+                    code = txtCode.Text
+                };
+                this.Hide();
+                exam.ShowDialog();
             }
         }
 

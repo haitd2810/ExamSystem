@@ -4,9 +4,15 @@
     <Compile Update="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
     <Compile Update="frmQuestionManage.cs">
       <SubType>Form</SubType>
     </Compile>
+=======
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
     <Compile Update="Login.cs">
       <SubType>Form</SubType>
     </Compile>
