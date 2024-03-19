@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("WinAppTracNghiem")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f722576d76dad902401b161d42ae98a05c0f8cb4")]
 [assembly: System.Reflection.AssemblyProductAttribute("WinAppTracNghiem")]
 [assembly: System.Reflection.AssemblyTitleAttribute("WinAppTracNghiem")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

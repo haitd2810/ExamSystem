@@ -25,6 +25,7 @@ namespace WinAppTracNghiem.Models
         public virtual DbSet<ExamCode> ExamCodes { get; set; } = null!;
         public virtual DbSet<Practice> Practices { get; set; } = null!;
         public virtual DbSet<Question> Questions { get; set; } = null!;
+        public virtual DbSet<QuestionOfCode> QuestionOfCodes { get; set; } = null!;
         public virtual DbSet<Semester> Semesters { get; set; } = null!;
         public virtual DbSet<TypeOfQuestion> TypeOfQuestions { get; set; } = null!;
 
@@ -138,11 +139,34 @@ namespace WinAppTracNghiem.Models
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK__Enroll__Username__4D94879B");
             });
+            modelBuilder.Entity<QuestionOfCode>(entity =>
+            {
+                entity.HasKey(e => new { e.ExamCode, e.Question })
+                    .HasName("PK__Question__790A716807776560");
+
+                entity.ToTable("QuestionOfCode");
+
+                entity.Property(e => e.ExamCode)
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.HasOne(d => d.ExamCodeNavigation)
+                    .WithMany(p => p.QuestionOfCodes)
+                    .HasForeignKey(d => d.ExamCode)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK__QuestionO__ExamC__628FA481");
+
+                entity.HasOne(d => d.QuestionNavigation)
+                    .WithMany(p => p.QuestionOfCodes)
+                    .HasForeignKey(d => d.Question)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK__QuestionO__Quest__6383C8BA");
+            });
 
             modelBuilder.Entity<ExamCode>(entity =>
             {
                 entity.HasKey(e => e.Code)
-                    .HasName("PK__ExamCode__A25C5AA621654C7B");
+                    .HasName("PK__ExamCode__A25C5AA66EC62E8E");
 
                 entity.ToTable("ExamCode");
 
@@ -167,27 +191,12 @@ namespace WinAppTracNghiem.Models
                 entity.HasOne(d => d.CourseNavigation)
                     .WithMany(p => p.ExamCodes)
                     .HasForeignKey(d => d.Course)
-                    .HasConstraintName("FK__ExamCode__Course__4E88ABD4");
+                    .HasConstraintName("FK__ExamCode__Course__5FB337D6");
 
                 entity.HasOne(d => d.SemesterNavigation)
                     .WithMany(p => p.ExamCodes)
                     .HasForeignKey(d => d.Semester)
-                    .HasConstraintName("FK__ExamCode__Semest__4F7CD00D");
-
-                entity.HasMany(d => d.Questions)
-                    .WithMany(p => p.ExamCodes)
-                    .UsingEntity<Dictionary<string, object>>(
-                        "QuestionOfCode",
-                        l => l.HasOne<Question>().WithMany().HasForeignKey("Question").OnDelete(DeleteBehavior.ClientSetNull).HasConstraintName("FK__QuestionO__Quest__534D60F1"),
-                        r => r.HasOne<ExamCode>().WithMany().HasForeignKey("ExamCode").OnDelete(DeleteBehavior.ClientSetNull).HasConstraintName("FK__QuestionO__ExamC__52593CB8"),
-                        j =>
-                        {
-                            j.HasKey("ExamCode", "Question").HasName("PK__Question__790A7168D4C97988");
-
-                            j.ToTable("QuestionOfCode");
-
-                            j.IndexerProperty<string>("ExamCode").HasMaxLength(50).IsUnicode(false);
-                        });
+                    .HasConstraintName("FK__ExamCode__Semest__5EBF139D");
             });
 
             modelBuilder.Entity<Practice>(entity =>

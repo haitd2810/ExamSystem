@@ -8,7 +8,7 @@ namespace WinAppTracNghiem.Models
         public ExamCode()
         {
             Practices = new HashSet<Practice>();
-            Questions = new HashSet<Question>();
+            QuestionOfCodes = new HashSet<QuestionOfCode>();
         }
 
         public string Code { get; set; } = null!;
@@ -24,6 +24,6 @@ namespace WinAppTracNghiem.Models
         public virtual Semester? SemesterNavigation { get; set; }
         public virtual ICollection<Practice> Practices { get; set; }
 
-        public virtual ICollection<Question> Questions { get; set; }
+        public virtual ICollection<QuestionOfCode> QuestionOfCodes { get; set; }
     }
 }

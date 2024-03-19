@@ -22,5 +22,6 @@ namespace WinAppTracNghiem.Models
         public virtual ICollection<AnswersOfQuestion> AnswersOfQuestions { get; set; }
 
         public virtual ICollection<ExamCode> ExamCodes { get; set; }
+        public virtual ICollection<QuestionOfCode> QuestionOfCodes { get; set; }
     }
 }
