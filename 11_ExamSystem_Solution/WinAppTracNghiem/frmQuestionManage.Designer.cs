@@ -153,6 +153,7 @@
             btnAdd.TabIndex = 3;
             btnAdd.Text = "Create Question";
             btnAdd.UseVisualStyleBackColor = true;
+            btnAdd.Click += btnAdd_Click;
             // 
             // btnUpdate
             // 

@@ -6,17 +6,18 @@ namespace WinAppTracNghiem
 {
     public partial class frmQuestionManage : Form
     {
+
+        BindingSource source = null;
         public frmQuestionManage()
         {
             InitializeComponent();
             this.WindowState = FormWindowState.Maximized;
             this.FormBorderStyle = FormBorderStyle.None;
         }
-        private WinAppTracNghiemContext context = new WinAppTracNghiemContext();
-        BindingSource source;
+
         private void frmQuestionManage_Load(object sender, EventArgs e)
         {
-            
+
             LoadQuestion();
             LoadCourse();
             LoadType();
@@ -24,6 +25,7 @@ namespace WinAppTracNghiem
         }
         public void LoadQuestion()
         {
+            using var context = new WinAppTracNghiemContext();
             var question = context.Questions.Include(q => q.TypeNavigation).Include(q => q.CourseNavigation).ToList();
             var questionData = from q in question
                                select new
@@ -43,6 +45,7 @@ namespace WinAppTracNghiem
 
         public void LoadType()
         {
+            using var context = new WinAppTracNghiemContext();
             var typeList = context.TypeOfQuestions.ToList();
             typeList.Add(new TypeOfQuestion
             {
@@ -57,6 +60,7 @@ namespace WinAppTracNghiem
 
         public void LoadCourse()
         {
+            using var context = new WinAppTracNghiemContext();
             var courseList = context.Courses.ToList();
             courseList.Add(new Course
             {
@@ -85,6 +89,7 @@ namespace WinAppTracNghiem
         }
         public void Filter()
         {
+            using var context = new WinAppTracNghiemContext();
             var question = context.Questions.Include(q => q.TypeNavigation).Include(q => q.CourseNavigation).ToList();
             var questionData = from q in question
                                select new
@@ -211,6 +216,7 @@ namespace WinAppTracNghiem
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
+            using var context = new WinAppTracNghiemContext();
             QuestionOfCode qs = context.QuestionOfCodes.FirstOrDefault(q => q.Question == questionID);
             if (qs != null)
             {
@@ -262,20 +268,43 @@ namespace WinAppTracNghiem
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            if(questionID == 0)
+            using var context = new WinAppTracNghiemContext();
+            if (questionID == 0)
             {
                 Question ques = context.Questions.FirstOrDefault();
                 questionID = ques.Id;
             }
-            frmUpdateQuestion formUpdateQues = new frmUpdateQuestion {
+            frmUpdateQuestion formUpdateQues = new frmUpdateQuestion
+            {
                 Text = "11_Exam System_ Update Question",
                 QuestionId = questionID,
                 InsertOrUpdate = true
             };
             this.Hide();
-            if(formUpdateQues.ShowDialog() == DialogResult.OK) {
+            if (formUpdateQues.ShowDialog() == DialogResult.OK)
+            {
                 this.Show();
-            }  
+                LoadQuestion();
+                LoadCourse();
+                LoadType();
+            }
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            frmUpdateQuestion formUpdateQues = new frmUpdateQuestion
+            {
+                Text = "11_Exam System_ Create Question",
+                InsertOrUpdate = false
+            };
+            this.Hide();
+            if (formUpdateQues.ShowDialog() == DialogResult.OK)
+            {
+                this.Show();
+                LoadQuestion();
+                LoadCourse();
+                LoadType();
+            }
         }
     }
 }
