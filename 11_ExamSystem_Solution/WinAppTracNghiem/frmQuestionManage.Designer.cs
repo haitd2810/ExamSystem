@@ -162,6 +162,7 @@
             btnUpdate.TabIndex = 3;
             btnUpdate.Text = "Update Question";
             btnUpdate.UseVisualStyleBackColor = true;
+            btnUpdate.Click += btnUpdate_Click;
             // 
             // btnDelete
             // 

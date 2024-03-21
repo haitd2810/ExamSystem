@@ -11,9 +11,12 @@
     <Compile Update="frmQuestionManage.cs">
       <SubType>Form</SubType>
     </Compile>
+<<<<<<< Updated upstream
+=======
     <Compile Update="frmUpdateQuestion.cs">
       <SubType>Form</SubType>
     </Compile>
+>>>>>>> Stashed changes
     <Compile Update="Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -23,8 +26,11 @@
     <Compile Update="Submit.cs">
       <SubType>Form</SubType>
     </Compile>
+<<<<<<< Updated upstream
     <Compile Update="ViewResult.cs">
       <SubType>Form</SubType>
     </Compile>
+=======
+>>>>>>> Stashed changes
   </ItemGroup>
 </Project>

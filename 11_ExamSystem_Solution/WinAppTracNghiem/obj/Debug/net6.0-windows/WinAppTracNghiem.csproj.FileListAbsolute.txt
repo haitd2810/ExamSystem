@@ -1,18 +1,8 @@
-C:\Users\Hi\OneDrive - Đại học FPT- FPT University\Desktop\PRN_ExamSystem\11_ExamSystem_Solution\WinAppTracNghiem\obj\Debug\net6.0-windows\WinAppTracNghiem.csproj.AssemblyReference.cache
-C:\Users\Hi\OneDrive - Đại học FPT- FPT University\Desktop\PRN_ExamSystem\11_ExamSystem_Solution\WinAppTracNghiem\obj\Debug\net6.0-windows\WinAppTracNghiem.Form1.resources
-C:\Users\Hi\OneDrive - Đại học FPT- FPT University\Desktop\PRN_ExamSystem\11_ExamSystem_Solution\WinAppTracNghiem\obj\Debug\net6.0-windows\WinAppTracNghiem.frmQuestionManage.resources
-C:\Users\Hi\OneDrive - Đại học FPT- FPT University\Desktop\PRN_ExamSystem\11_ExamSystem_Solution\WinAppTracNghiem\obj\Debug\net6.0-windows\WinAppTracNghiem.Login.resources
-C:\Users\Hi\OneDrive - Đại học FPT- FPT University\Desktop\PRN_ExamSystem\11_ExamSystem_Solution\WinAppTracNghiem\obj\Debug\net6.0-windows\WinAppTracNghiem.csproj.GenerateResource.cache
-C:\Users\Hi\OneDrive - Đại học FPT- FPT University\Desktop\PRN_ExamSystem\11_ExamSystem_Solution\WinAppTracNghiem\obj\Debug\net6.0-windows\WinAppTracNghiem.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\Hi\OneDrive - Đại học FPT- FPT University\Desktop\PRN_ExamSystem\11_ExamSystem_Solution\WinAppTracNghiem\obj\Debug\net6.0-windows\WinAppTracNghiem.AssemblyInfoInputs.cache
-C:\Users\Hi\OneDrive - Đại học FPT- FPT University\Desktop\PRN_ExamSystem\11_ExamSystem_Solution\WinAppTracNghiem\obj\Debug\net6.0-windows\WinAppTracNghiem.AssemblyInfo.cs
-C:\Users\Hi\OneDrive - Đại học FPT- FPT University\Desktop\PRN_ExamSystem\11_ExamSystem_Solution\WinAppTracNghiem\obj\Debug\net6.0-windows\WinAppTracNghiem.csproj.CoreCompileInputs.cache
-C:\Users\Hi\OneDrive - Đại học FPT- FPT University\Desktop\PRN_ExamSystem\11_ExamSystem_Solution\WinAppTracNghiem\obj\Debug\net6.0-windows\WinAppTracNghiem.sourcelink.json
+C:\Users\Hi\OneDrive - Đại học FPT- FPT University\Desktop\PRN_ExamSystem\11_ExamSystem_Solution\WinAppTracNghiem\bin\Debug\net6.0-windows\WinAppTracNghiem.dll
 C:\Users\Hi\OneDrive - Đại học FPT- FPT University\Desktop\PRN_ExamSystem\11_ExamSystem_Solution\WinAppTracNghiem\bin\Debug\net6.0-windows\WinAppTracNghiem.exe
 C:\Users\Hi\OneDrive - Đại học FPT- FPT University\Desktop\PRN_ExamSystem\11_ExamSystem_Solution\WinAppTracNghiem\bin\Debug\net6.0-windows\appsettings.json
 C:\Users\Hi\OneDrive - Đại học FPT- FPT University\Desktop\PRN_ExamSystem\11_ExamSystem_Solution\WinAppTracNghiem\bin\Debug\net6.0-windows\WinAppTracNghiem.deps.json
 C:\Users\Hi\OneDrive - Đại học FPT- FPT University\Desktop\PRN_ExamSystem\11_ExamSystem_Solution\WinAppTracNghiem\bin\Debug\net6.0-windows\WinAppTracNghiem.runtimeconfig.json
-C:\Users\Hi\OneDrive - Đại học FPT- FPT University\Desktop\PRN_ExamSystem\11_ExamSystem_Solution\WinAppTracNghiem\bin\Debug\net6.0-windows\WinAppTracNghiem.dll
 C:\Users\Hi\OneDrive - Đại học FPT- FPT University\Desktop\PRN_ExamSystem\11_ExamSystem_Solution\WinAppTracNghiem\bin\Debug\net6.0-windows\WinAppTracNghiem.pdb
 C:\Users\Hi\OneDrive - Đại học FPT- FPT University\Desktop\PRN_ExamSystem\11_ExamSystem_Solution\WinAppTracNghiem\bin\Debug\net6.0-windows\Humanizer.dll
 C:\Users\Hi\OneDrive - Đại học FPT- FPT University\Desktop\PRN_ExamSystem\11_ExamSystem_Solution\WinAppTracNghiem\bin\Debug\net6.0-windows\Microsoft.Data.SqlClient.dll
@@ -52,6 +42,20 @@ C:\Users\Hi\OneDrive - Đại học FPT- FPT University\Desktop\PRN_ExamSystem\1
 C:\Users\Hi\OneDrive - Đại học FPT- FPT University\Desktop\PRN_ExamSystem\11_ExamSystem_Solution\WinAppTracNghiem\bin\Debug\net6.0-windows\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
 C:\Users\Hi\OneDrive - Đại học FPT- FPT University\Desktop\PRN_ExamSystem\11_ExamSystem_Solution\WinAppTracNghiem\bin\Debug\net6.0-windows\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
 C:\Users\Hi\OneDrive - Đại học FPT- FPT University\Desktop\PRN_ExamSystem\11_ExamSystem_Solution\WinAppTracNghiem\bin\Debug\net6.0-windows\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
+C:\Users\Hi\OneDrive - Đại học FPT- FPT University\Desktop\PRN_ExamSystem\11_ExamSystem_Solution\WinAppTracNghiem\obj\Debug\net6.0-windows\WinAppTracNghiem.csproj.AssemblyReference.cache
+C:\Users\Hi\OneDrive - Đại học FPT- FPT University\Desktop\PRN_ExamSystem\11_ExamSystem_Solution\WinAppTracNghiem\obj\Debug\net6.0-windows\WinAppTracNghiem.Exam.resources
+C:\Users\Hi\OneDrive - Đại học FPT- FPT University\Desktop\PRN_ExamSystem\11_ExamSystem_Solution\WinAppTracNghiem\obj\Debug\net6.0-windows\WinAppTracNghiem.Form1.resources
+C:\Users\Hi\OneDrive - Đại học FPT- FPT University\Desktop\PRN_ExamSystem\11_ExamSystem_Solution\WinAppTracNghiem\obj\Debug\net6.0-windows\WinAppTracNghiem.frmQuestionManage.resources
+C:\Users\Hi\OneDrive - Đại học FPT- FPT University\Desktop\PRN_ExamSystem\11_ExamSystem_Solution\WinAppTracNghiem\obj\Debug\net6.0-windows\WinAppTracNghiem.frmUpdateQuestion.resources
+C:\Users\Hi\OneDrive - Đại học FPT- FPT University\Desktop\PRN_ExamSystem\11_ExamSystem_Solution\WinAppTracNghiem\obj\Debug\net6.0-windows\WinAppTracNghiem.Login.resources
+C:\Users\Hi\OneDrive - Đại học FPT- FPT University\Desktop\PRN_ExamSystem\11_ExamSystem_Solution\WinAppTracNghiem\obj\Debug\net6.0-windows\WinAppTracNghiem.Manager.resources
+C:\Users\Hi\OneDrive - Đại học FPT- FPT University\Desktop\PRN_ExamSystem\11_ExamSystem_Solution\WinAppTracNghiem\obj\Debug\net6.0-windows\WinAppTracNghiem.Submit.resources
+C:\Users\Hi\OneDrive - Đại học FPT- FPT University\Desktop\PRN_ExamSystem\11_ExamSystem_Solution\WinAppTracNghiem\obj\Debug\net6.0-windows\WinAppTracNghiem.csproj.GenerateResource.cache
+C:\Users\Hi\OneDrive - Đại học FPT- FPT University\Desktop\PRN_ExamSystem\11_ExamSystem_Solution\WinAppTracNghiem\obj\Debug\net6.0-windows\WinAppTracNghiem.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Hi\OneDrive - Đại học FPT- FPT University\Desktop\PRN_ExamSystem\11_ExamSystem_Solution\WinAppTracNghiem\obj\Debug\net6.0-windows\WinAppTracNghiem.AssemblyInfoInputs.cache
+C:\Users\Hi\OneDrive - Đại học FPT- FPT University\Desktop\PRN_ExamSystem\11_ExamSystem_Solution\WinAppTracNghiem\obj\Debug\net6.0-windows\WinAppTracNghiem.AssemblyInfo.cs
+C:\Users\Hi\OneDrive - Đại học FPT- FPT University\Desktop\PRN_ExamSystem\11_ExamSystem_Solution\WinAppTracNghiem\obj\Debug\net6.0-windows\WinAppTracNghiem.csproj.CoreCompileInputs.cache
+C:\Users\Hi\OneDrive - Đại học FPT- FPT University\Desktop\PRN_ExamSystem\11_ExamSystem_Solution\WinAppTracNghiem\obj\Debug\net6.0-windows\WinAppTracNghiem.sourcelink.json
 C:\Users\Hi\OneDrive - Đại học FPT- FPT University\Desktop\PRN_ExamSystem\11_ExamSystem_Solution\WinAppTracNghiem\obj\Debug\net6.0-windows\WinAppTracNghiem.csproj.CopyComplete
 C:\Users\Hi\OneDrive - Đại học FPT- FPT University\Desktop\PRN_ExamSystem\11_ExamSystem_Solution\WinAppTracNghiem\obj\Debug\net6.0-windows\WinAppTracNghiem.dll
 C:\Users\Hi\OneDrive - Đại học FPT- FPT University\Desktop\PRN_ExamSystem\11_ExamSystem_Solution\WinAppTracNghiem\obj\Debug\net6.0-windows\refint\WinAppTracNghiem.dll
@@ -121,3 +125,4 @@ C:\Users\admin\Desktop\eos\11_ExamSystem_Solution\WinAppTracNghiem\obj\Debug\net
 C:\Users\admin\Desktop\eos\11_ExamSystem_Solution\WinAppTracNghiem\obj\Debug\net6.0-windows\WinAppTracNghiem.pdb
 C:\Users\admin\Desktop\eos\11_ExamSystem_Solution\WinAppTracNghiem\obj\Debug\net6.0-windows\WinAppTracNghiem.genruntimeconfig.cache
 C:\Users\admin\Desktop\eos\11_ExamSystem_Solution\WinAppTracNghiem\obj\Debug\net6.0-windows\ref\WinAppTracNghiem.dll
+C:\Users\Hi\OneDrive - Đại học FPT- FPT University\Desktop\PRN_ExamSystem\11_ExamSystem_Solution\WinAppTracNghiem\obj\Debug\net6.0-windows\WinAppTracNghiem.ViewResult.resources

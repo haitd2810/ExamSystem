@@ -9,16 +9,18 @@ namespace WinAppTracNghiem
         public frmQuestionManage()
         {
             InitializeComponent();
+            this.WindowState = FormWindowState.Maximized;
+            this.FormBorderStyle = FormBorderStyle.None;
         }
         private WinAppTracNghiemContext context = new WinAppTracNghiemContext();
         BindingSource source;
         private void frmQuestionManage_Load(object sender, EventArgs e)
         {
-            this.WindowState = FormWindowState.Maximized;
-            this.FormBorderStyle = FormBorderStyle.None;
+            
             LoadQuestion();
             LoadCourse();
             LoadType();
+            dgvDataQues.AllowUserToAddRows = false;
         }
         public void LoadQuestion()
         {
@@ -210,14 +212,15 @@ namespace WinAppTracNghiem
         private void btnDelete_Click(object sender, EventArgs e)
         {
             QuestionOfCode qs = context.QuestionOfCodes.FirstOrDefault(q => q.Question == questionID);
-            if(qs != null)
+            if (qs != null)
             {
                 MessageBox.Show("This question is used in exam code, cannot delete!");
             }
-            else {
-            Question q = null;
-            q = context.Questions.Where(q => q.Id == questionID).FirstOrDefault();
-            List<AnswersOfQuestion> aq = context.AnswersOfQuestions.Where(a => a.Question == questionID).ToList();
+            else
+            {
+                Question q = null;
+                q = context.Questions.Where(q => q.Id == questionID).FirstOrDefault();
+                List<AnswersOfQuestion> aq = context.AnswersOfQuestions.Where(a => a.Question == questionID).ToList();
                 if (q == null || aq.Count() == 0)
                 {
                     MessageBox.Show("The question is not exist!");
@@ -255,6 +258,24 @@ namespace WinAppTracNghiem
                     }
                 }
             }
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            if(questionID == 0)
+            {
+                Question ques = context.Questions.FirstOrDefault();
+                questionID = ques.Id;
+            }
+            frmUpdateQuestion formUpdateQues = new frmUpdateQuestion {
+                Text = "11_Exam System_ Update Question",
+                QuestionId = questionID,
+                InsertOrUpdate = true
+            };
+            this.Hide();
+            if(formUpdateQues.ShowDialog() == DialogResult.OK) {
+                this.Show();
+            }  
         }
     }
 }

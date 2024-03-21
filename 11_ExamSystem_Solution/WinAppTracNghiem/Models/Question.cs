@@ -8,6 +8,7 @@ namespace WinAppTracNghiem.Models
         public Question()
         {
             AnswersOfQuestions = new HashSet<AnswersOfQuestion>();
+            /*ExamCodes = new HashSet<ExamCode>();*/
             QuestionOfCodes = new HashSet<QuestionOfCode>();
         }
 
