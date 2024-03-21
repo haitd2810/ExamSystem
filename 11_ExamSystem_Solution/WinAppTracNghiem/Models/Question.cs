@@ -8,7 +8,7 @@ namespace WinAppTracNghiem.Models
         public Question()
         {
             AnswersOfQuestions = new HashSet<AnswersOfQuestion>();
-            ExamCodes = new HashSet<ExamCode>();
+            QuestionOfCodes = new HashSet<QuestionOfCode>();
         }
 
         public int Id { get; set; }
@@ -20,8 +20,6 @@ namespace WinAppTracNghiem.Models
         public virtual Course? CourseNavigation { get; set; }
         public virtual TypeOfQuestion? TypeNavigation { get; set; }
         public virtual ICollection<AnswersOfQuestion> AnswersOfQuestions { get; set; }
-
-        public virtual ICollection<ExamCode> ExamCodes { get; set; }
         public virtual ICollection<QuestionOfCode> QuestionOfCodes { get; set; }
     }
 }

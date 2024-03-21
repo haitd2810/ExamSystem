@@ -23,7 +23,6 @@ namespace WinAppTracNghiem.Models
         public virtual Course? CourseNavigation { get; set; }
         public virtual Semester? SemesterNavigation { get; set; }
         public virtual ICollection<Practice> Practices { get; set; }
-
         public virtual ICollection<QuestionOfCode> QuestionOfCodes { get; set; }
     }
 }
