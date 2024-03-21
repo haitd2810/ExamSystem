@@ -28,89 +28,89 @@
         /// </summary>
         private void InitializeComponent()
         {
-            lbCode = new Label();
-            lbUsername = new Label();
-            lbPassword = new Label();
-            txtCode = new TextBox();
-            txtUsername = new TextBox();
-            txtPassword = new TextBox();
-            btnLogin = new Button();
             btnExit = new Button();
+            btnLogin = new Button();
+            txtPassword = new TextBox();
+            txtUsername = new TextBox();
+            txtCode = new TextBox();
+            lbPassword = new Label();
+            lbUsername = new Label();
+            lbCode = new Label();
             SuspendLayout();
-            // 
-            // lbCode
-            // 
-            lbCode.AutoSize = true;
-            lbCode.Location = new Point(62, 102);
-            lbCode.Name = "lbCode";
-            lbCode.Size = new Size(119, 26);
-            lbCode.TabIndex = 0;
-            lbCode.Text = "Exam Code";
-            // 
-            // lbUsername
-            // 
-            lbUsername.AutoSize = true;
-            lbUsername.Location = new Point(62, 204);
-            lbUsername.Name = "lbUsername";
-            lbUsername.Size = new Size(104, 26);
-            lbUsername.TabIndex = 0;
-            lbUsername.Text = "Username";
-            // 
-            // lbPassword
-            // 
-            lbPassword.AutoSize = true;
-            lbPassword.Location = new Point(62, 309);
-            lbPassword.Name = "lbPassword";
-            lbPassword.Size = new Size(102, 26);
-            lbPassword.TabIndex = 0;
-            lbPassword.Text = "Password";
-            // 
-            // txtCode
-            // 
-            txtCode.Location = new Point(189, 102);
-            txtCode.Name = "txtCode";
-            txtCode.Size = new Size(358, 34);
-            txtCode.TabIndex = 1;
-            // 
-            // txtUsername
-            // 
-            txtUsername.Location = new Point(189, 201);
-            txtUsername.Name = "txtUsername";
-            txtUsername.Size = new Size(358, 34);
-            txtUsername.TabIndex = 1;
-            // 
-            // txtPassword
-            // 
-            txtPassword.Location = new Point(189, 306);
-            txtPassword.Name = "txtPassword";
-            txtPassword.Size = new Size(358, 34);
-            txtPassword.TabIndex = 1;
-            // 
-            // btnLogin
-            // 
-            btnLogin.Location = new Point(99, 440);
-            btnLogin.Name = "btnLogin";
-            btnLogin.Size = new Size(132, 48);
-            btnLogin.TabIndex = 2;
-            btnLogin.Text = "Login";
-            btnLogin.UseVisualStyleBackColor = true;
-            btnLogin.Click += btnLogin_Click;
             // 
             // btnExit
             // 
-            btnExit.Location = new Point(342, 440);
+            btnExit.Location = new Point(314, 259);
             btnExit.Name = "btnExit";
             btnExit.Size = new Size(132, 48);
-            btnExit.TabIndex = 2;
+            btnExit.TabIndex = 17;
             btnExit.Text = "Exit";
             btnExit.UseVisualStyleBackColor = true;
             btnExit.Click += btnExit_Click;
             // 
+            // btnLogin
+            // 
+            btnLogin.Location = new Point(71, 259);
+            btnLogin.Name = "btnLogin";
+            btnLogin.Size = new Size(132, 48);
+            btnLogin.TabIndex = 18;
+            btnLogin.Text = "Login";
+            btnLogin.UseVisualStyleBackColor = true;
+            btnLogin.Click += btnLogin_Click;
+            // 
+            // txtPassword
+            // 
+            txtPassword.Location = new Point(165, 172);
+            txtPassword.Name = "txtPassword";
+            txtPassword.Size = new Size(358, 27);
+            txtPassword.TabIndex = 14;
+            // 
+            // txtUsername
+            // 
+            txtUsername.Location = new Point(165, 112);
+            txtUsername.Name = "txtUsername";
+            txtUsername.Size = new Size(358, 27);
+            txtUsername.TabIndex = 15;
+            // 
+            // txtCode
+            // 
+            txtCode.Location = new Point(165, 59);
+            txtCode.Name = "txtCode";
+            txtCode.Size = new Size(358, 27);
+            txtCode.TabIndex = 16;
+            // 
+            // lbPassword
+            // 
+            lbPassword.AutoSize = true;
+            lbPassword.Location = new Point(38, 175);
+            lbPassword.Name = "lbPassword";
+            lbPassword.Size = new Size(70, 20);
+            lbPassword.TabIndex = 11;
+            lbPassword.Text = "Password";
+            // 
+            // lbUsername
+            // 
+            lbUsername.AutoSize = true;
+            lbUsername.Location = new Point(38, 115);
+            lbUsername.Name = "lbUsername";
+            lbUsername.Size = new Size(75, 20);
+            lbUsername.TabIndex = 12;
+            lbUsername.Text = "Username";
+            // 
+            // lbCode
+            // 
+            lbCode.AutoSize = true;
+            lbCode.Location = new Point(38, 59);
+            lbCode.Name = "lbCode";
+            lbCode.Size = new Size(84, 20);
+            lbCode.TabIndex = 13;
+            lbCode.Text = "Exam Code";
+            // 
             // Login
             // 
-            AutoScaleDimensions = new SizeF(13F, 26F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(619, 585);
+            ClientSize = new Size(587, 384);
             Controls.Add(btnExit);
             Controls.Add(btnLogin);
             Controls.Add(txtPassword);
@@ -119,10 +119,7 @@
             Controls.Add(lbPassword);
             Controls.Add(lbUsername);
             Controls.Add(lbCode);
-            Font = new Font("Times New Roman", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            Margin = new Padding(5, 4, 5, 4);
             Name = "Login";
-            StartPosition = FormStartPosition.CenterScreen;
             Text = "Login";
             ResumeLayout(false);
             PerformLayout();
@@ -130,13 +127,13 @@
 
         #endregion
 
-        private Label lbCode;
-        private Label lbUsername;
-        private Label lbPassword;
-        private TextBox txtCode;
-        private TextBox txtUsername;
-        private TextBox txtPassword;
-        private Button btnLogin;
         private Button btnExit;
+        private Button btnLogin;
+        private TextBox txtPassword;
+        private TextBox txtUsername;
+        private TextBox txtCode;
+        private Label lbPassword;
+        private Label lbUsername;
+        private Label lbCode;
     }
 }

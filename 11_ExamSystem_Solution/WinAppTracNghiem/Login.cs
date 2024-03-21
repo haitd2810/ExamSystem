@@ -7,92 +7,95 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Runtime.CompilerServices.RuntimeHelpers;
 using WinAppTracNghiem.Models;
 
 namespace WinAppTracNghiem
 {
     public partial class Login : Form
-    {
-        WinAppTracNghiemContext context = new WinAppTracNghiemContext();
+    {   
+        WinAppTracNghiemContext context=new WinAppTracNghiemContext();
         public Login()
         {
             InitializeComponent();
         }
 
+
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            if (String.IsNullOrEmpty(txtUsername.Text) || String.IsNullOrEmpty(txtPassword.Text))
+            if (txtUsername.Text.Trim().Equals("") || txtPassword.Text.Trim().Equals(""))
             {
                 MessageBox.Show("Please enter username or password");
                 return;
             }
             Account acc = context.Accounts.Where(a => a.Username == txtUsername.Text && a.Password == txtPassword.Text).FirstOrDefault();
-            if (acc.Role == 1)
+            if (acc == null)
             {
-                Manager manager = new Manager
-                {
-                    Text = "11_ExamSystem_Manager",
-                    acc = acc
-                };
-                this.Hide();
-                manager.ShowDialog();
+                MessageBox.Show("Account is not exist");
             }
             else
             {
-                if (String.IsNullOrEmpty(txtCode.Text))
+                if (acc.Role == 1)
                 {
-                    MessageBox.Show("Please enter Exam Code");
-                    return;
+                    Manager f = new Manager();
+                    Login f2 = new Login();
+                    f2.Hide();
+                    f.ShowDialog();
                 }
-                ExamCode code = context.ExamCodes.Where(c => c.Code == txtCode.Text).FirstOrDefault();
-                if (code == null)
+                else
                 {
-                    MessageBox.Show("Exam Code not exist");
-                    return;
+                    if (txtCode.Text.Trim().Equals(""))
+                    {
+                        MessageBox.Show("Code can not be empty!");
+                        return;
+                    }
+                    ExamCode exam = context.ExamCodes.Where(e => e.Code.Equals(txtCode.Text)).FirstOrDefault();
+                    if (exam == null)
+                    {
+                        MessageBox.Show("Code is not exist!");
+                        return;
+                    }
+                    if (exam.Status.Equals("NonActive"))
+                    {
+                        MessageBox.Show("Code is not active!");
+                        return;
+                    }
+                    Enroll enroll = context.Enrolls
+                        .Where(e => e.Username.Equals(txtUsername.Text)
+                        && e.Course.Equals(exam.Course)
+                        && e.Semester.Equals(exam.Semester)).FirstOrDefault();
+                    if (enroll == null)
+                    {
+                        MessageBox.Show("You can not do this test!");
+                        return;
+                    }
+                    Practice p = context.Practices
+                        .Where(p => p.Username.Equals(txtUsername.Text)
+                        && p.ExamCode.Equals(txtCode.Text)).FirstOrDefault();
+                    if (p != null && (p.Status.Equals("Doing") || p.Status.Equals("Done")))
+                    {
+                        MessageBox.Show("You have assigned this test!");
+                        return;
+                    }
+                    Practice pra = new Practice
+                    {
+                        Username = txtUsername.Text,
+                        ExamCode = txtCode.Text,
+                        TimeBegin = DateTime.Now,
+                        Status = "Doing"
+                    };
+                    context.Practices.Add(pra);
+                    context.SaveChanges();
+                    Exam f = new Exam(txtUsername.Text, txtCode.Text);
+                    this.Hide();
+                    f.ShowDialog();
                 }
-                if(code.Status.Equals("Not Active"))
-                {
-                    MessageBox.Show("Exam Code not active");
-                    return;
-                }
-
-                Enroll enroll=context.Enrolls.Where(e => e.Username==acc.Username
-                                && e.Semester==code.Semester && e.Course==code.Course).FirstOrDefault();
-                if(enroll == null)
-                {
-                    MessageBox.Show("You not enroll this exam code");
-                    return;
-                }
-
-                Practice practice = context.Practices.Where(p => p.Username == acc.Username && p.ExamCode == code.Code).FirstOrDefault();
-                if(practice != null &&(practice.Status.Equals("Doing") ||practice.Status.Equals("Done")))
-                {
-                    MessageBox.Show("You have assigned this code");
-                    return;
-                }
-                Practice prac = new Practice
-                {
-                    Username = txtUsername.Text,
-                    ExamCode = txtCode.Text,
-                    TimeBegin = DateTime.Now,
-                    Status = "Doing"
-                };
-                context.Practices.Add(prac);
-                context.SaveChanges();
-                Exam exam = new Exam
-                {
-                    Text = "11_ExamSystem_Exam",
-                    username = txtUsername.Text,
-                    code = txtCode.Text
-                };
-                this.Hide();
-                exam.ShowDialog();
             }
         }
 
         private void btnExit_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Application.Exit();
         }
     }
 }

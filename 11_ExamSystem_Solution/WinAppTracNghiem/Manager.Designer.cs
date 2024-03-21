@@ -42,6 +42,7 @@
             btnManageExam.TabIndex = 0;
             btnManageExam.Text = "Manage Exam";
             btnManageExam.UseVisualStyleBackColor = true;
+            btnManageExam.Click += btnManageExam_Click;
             // 
             // btnManage
             // 
@@ -51,6 +52,7 @@
             btnManage.TabIndex = 0;
             btnManage.Text = "Manage";
             btnManage.UseVisualStyleBackColor = true;
+            btnManage.Click += btnManage_Click;
             // 
             // btnViewResult
             // 
@@ -60,6 +62,7 @@
             btnViewResult.TabIndex = 0;
             btnViewResult.Text = "View Result";
             btnViewResult.UseVisualStyleBackColor = true;
+            btnViewResult.Click += btnViewResult_Click;
             // 
             // btnLogout
             // 
@@ -69,6 +72,7 @@
             btnLogout.TabIndex = 0;
             btnLogout.Text = "Logout";
             btnLogout.UseVisualStyleBackColor = true;
+            btnLogout.Click += btnLogout_Click;
             // 
             // Manager
             // 
