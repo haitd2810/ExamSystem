@@ -249,6 +249,41 @@ namespace WinAppTracNghiem
             else { return false; }
         }
 
+        public bool CheckDuplicateAns()
+        {
+            using var context = new WinAppTracNghiemContext();
+            bool checkduplicate = false;
+            for (int i = 1; i <= count; i++)
+            {
+                string keyTxT = "txtAns" + i;
+
+                Control[] controlsTXT = this.Controls.Find(keyTxT, true);
+
+                if (controlsTXT.Length > 0 && controlsTXT[0] is TextBox)
+                {
+                    TextBox txt = (TextBox)controlsTXT[0];
+                    for (int j = i+1; j <= count; j++)
+                    {
+                        string keyTxT1 = "txtAns" + i;
+
+                        Control[] controlsTXT1 = this.Controls.Find(keyTxT, true);
+                        if (controlsTXT1.Length > 0 && controlsTXT1[0] is TextBox)
+                        {
+                            TextBox txt1 = (TextBox)controlsTXT1[0];
+                            if (txt.Text.Equals(txt1.Text))
+                            {
+                                checkduplicate = true;
+                            }
+                        }
+                     }
+                }
+            }
+            if (checkduplicate)
+            {
+                return true;
+            }
+            else { return false; }
+        }
         public void UpdateQuestion()
         {
             using var context = new WinAppTracNghiemContext();
@@ -317,30 +352,37 @@ namespace WinAppTracNghiem
             
             if (checkUpdate == true)
             {
-                TypeOfQuestion typeUpdate = cbType.SelectedItem as TypeOfQuestion;
-                Course courseUpdate = cbCourse.SelectedItem as Course;
-                string Title = txtTitle.Text;
-                int NumberAns = int.Parse(txtNumberAns.Text);
-                Question ques = context.Questions.FirstOrDefault(q => q.Id == QuestionId);
-                if (ques != null)
+                if (CheckDuplicateAns())
                 {
-                    //update question
-                    ques.Course = courseUpdate.Code;
-                    ques.Type = typeUpdate.Id;
-                    ques.Title = Title;
-                    ques.NumberOfAnswers = NumberAns;
-                    context.Questions.Update(ques);
-                    context.SaveChanges();
-                    //get the new update question
-                    List<bool> isTrue = new List<bool>();
-                    List<String> content = new List<string>();
-                    //save new answer to list
-                    SaveNewAnswer(content, isTrue); 
-                    //remove old answer
-                    RemoveOldAns();
-                    //change new answer by get new answer from list
-                    AddNewAns(content, isTrue);
-                    message = "Update Successfully!";
+                    message = "You inputed some same answer. Please check and enter again!";
+                }
+                else
+                {
+                    TypeOfQuestion typeUpdate = cbType.SelectedItem as TypeOfQuestion;
+                    Course courseUpdate = cbCourse.SelectedItem as Course;
+                    string Title = txtTitle.Text;
+                    int NumberAns = int.Parse(txtNumberAns.Text);
+                    Question ques = context.Questions.FirstOrDefault(q => q.Id == QuestionId);
+                    if (ques != null)
+                    {
+                        //update question
+                        ques.Course = courseUpdate.Code;
+                        ques.Type = typeUpdate.Id;
+                        ques.Title = Title;
+                        ques.NumberOfAnswers = NumberAns;
+                        context.Questions.Update(ques);
+                        context.SaveChanges();
+                        //get the new update question
+                        List<bool> isTrue = new List<bool>();
+                        List<String> content = new List<string>();
+                        //save new answer to list
+                        SaveNewAnswer(content, isTrue);
+                        //remove old answer
+                        RemoveOldAns();
+                        //change new answer by get new answer from list
+                        AddNewAns(content, isTrue);
+                        message = "Update Successfully!";
+                    }
                 }
 
             }
@@ -521,38 +563,45 @@ namespace WinAppTracNghiem
             }
             if (checkAdd == true)
             {
-                Question ques = context.Questions.FirstOrDefault(q => q.Id == QuestionId);
-                if (ques != null)
+                if (CheckDuplicateAns())
                 {
-                    message = "The Question is exist on system!";
+                    message = "You inputed some same answer. Please check and enter again!";
                 }
                 else
                 {
-                    TypeOfQuestion typeAdd = cbType.SelectedItem as TypeOfQuestion;
-                    Course courseAdd = cbCourse.SelectedItem as Course;
-                    string Title = txtTitle.Text;
-                    int NumberAns = int.Parse(txtNumberAns.Text);
-                    Question question = new Question
+                    Question ques = context.Questions.FirstOrDefault(q => q.Id == QuestionId);
+                    if (ques != null)
                     {
-                        Title = Title,
-                        NumberOfAnswers = NumberAns,
-                        Type = typeAdd.Id,
-                        Course = courseAdd.Code
-                    };
-                    context.Questions.Add(question);
-                    context.SaveChanges();
-                    Question FindQues = context.Questions.FirstOrDefault(q => q.Title.Equals(question.Title) && q.NumberOfAnswers == question.NumberOfAnswers
-                    && q.Type == question.Type && q.Course.Equals(question.Course));
-                    QuestionId = FindQues.Id;
-                    //get the new update question
-                    List<bool> isTrue = new List<bool>();
-                    List<String> content = new List<string>();
-                    //save new answer to list
-                    SaveNewAnswer(content, isTrue);
-                    //change new answer by get new answer from list
-                    AddNewAns(content, isTrue);
-                    message = "Add Successfully!";
+                        message = "The Question is exist on system!";
+                    }
+                    else
+                    {
+                        TypeOfQuestion typeAdd = cbType.SelectedItem as TypeOfQuestion;
+                        Course courseAdd = cbCourse.SelectedItem as Course;
+                        string Title = txtTitle.Text;
+                        int NumberAns = int.Parse(txtNumberAns.Text);
+                        Question question = new Question
+                        {
+                            Title = Title,
+                            NumberOfAnswers = NumberAns,
+                            Type = typeAdd.Id,
+                            Course = courseAdd.Code
+                        };
+                        context.Questions.Add(question);
+                        context.SaveChanges();
+                        Question FindQues = context.Questions.FirstOrDefault(q => q.Title.Equals(question.Title) && q.NumberOfAnswers == question.NumberOfAnswers
+                        && q.Type == question.Type && q.Course.Equals(question.Course));
+                        QuestionId = FindQues.Id;
+                        //get the new update question
+                        List<bool> isTrue = new List<bool>();
+                        List<String> content = new List<string>();
+                        //save new answer to list
+                        SaveNewAnswer(content, isTrue);
+                        //change new answer by get new answer from list
+                        AddNewAns(content, isTrue);
+                        message = "Add Successfully!";
 
+                    }
                 }
             }
             if (message.Trim().Length > 0) { MessageBox.Show(message); }
