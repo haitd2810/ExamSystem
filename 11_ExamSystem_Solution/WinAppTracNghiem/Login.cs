@@ -13,14 +13,12 @@ using WinAppTracNghiem.Models;
 namespace WinAppTracNghiem
 {
     public partial class Login : Form
-    {   
-        WinAppTracNghiemContext context=new WinAppTracNghiemContext();
+    {
+        WinAppTracNghiemContext context = new WinAppTracNghiemContext();
         public Login()
         {
             InitializeComponent();
         }
-
-
         private void btnLogin_Click(object sender, EventArgs e)
         {
             if (txtUsername.Text.Trim().Equals("") || txtPassword.Text.Trim().Equals(""))
@@ -37,9 +35,8 @@ namespace WinAppTracNghiem
             {
                 if (acc.Role == 1)
                 {
+                    this.Hide();
                     Manager f = new Manager();
-                    Login f2 = new Login();
-                    f2.Hide();
                     f.ShowDialog();
                 }
                 else

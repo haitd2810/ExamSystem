@@ -14,6 +14,4 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = WinAppTracNghiem
-build_property.ProjectDir = C:\Users\Hi\OneDrive - Đại học FPT- FPT University\Desktop\PRN_ExamSystem\11_ExamSystem_Solution\WinAppTracNghiem\
-build_property.EnableComHosting = 
-build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.ProjectDir = C:\Users\admin\Desktop\eos\11_ExamSystem_Solution\WinAppTracNghiem\

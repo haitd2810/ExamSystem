@@ -31,10 +31,8 @@
             groupBox1 = new GroupBox();
             cboCourses = new ComboBox();
             cboSemesters = new ComboBox();
-            txtName = new TextBox();
             label3 = new Label();
             label2 = new Label();
-            label1 = new Label();
             dgvResult = new DataGridView();
             btnDes = new Button();
             Code = new Label();
@@ -53,10 +51,8 @@
             // 
             groupBox1.Controls.Add(cboCourses);
             groupBox1.Controls.Add(cboSemesters);
-            groupBox1.Controls.Add(txtName);
             groupBox1.Controls.Add(label3);
             groupBox1.Controls.Add(label2);
-            groupBox1.Controls.Add(label1);
             groupBox1.Location = new Point(8, 61);
             groupBox1.Margin = new Padding(3, 4, 3, 4);
             groupBox1.Name = "groupBox1";
@@ -69,7 +65,7 @@
             // cboCourses
             // 
             cboCourses.FormattingEnabled = true;
-            cboCourses.Location = new Point(103, 172);
+            cboCourses.Location = new Point(113, 112);
             cboCourses.Margin = new Padding(3, 4, 3, 4);
             cboCourses.Name = "cboCourses";
             cboCourses.Size = new Size(138, 28);
@@ -79,26 +75,17 @@
             // cboSemesters
             // 
             cboSemesters.FormattingEnabled = true;
-            cboSemesters.Location = new Point(103, 121);
+            cboSemesters.Location = new Point(113, 60);
             cboSemesters.Margin = new Padding(3, 4, 3, 4);
             cboSemesters.Name = "cboSemesters";
             cboSemesters.Size = new Size(138, 28);
             cboSemesters.TabIndex = 4;
             cboSemesters.SelectedIndexChanged += cboSemesters_SelectedIndexChanged;
             // 
-            // txtName
-            // 
-            txtName.Location = new Point(103, 63);
-            txtName.Margin = new Padding(3, 4, 3, 4);
-            txtName.Name = "txtName";
-            txtName.Size = new Size(138, 27);
-            txtName.TabIndex = 3;
-            txtName.TextChanged += txtName_TextChanged;
-            // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(24, 177);
+            label3.Location = new Point(28, 115);
             label3.Name = "label3";
             label3.Size = new Size(63, 20);
             label3.TabIndex = 2;
@@ -107,20 +94,11 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(24, 126);
+            label2.Location = new Point(28, 60);
             label2.Name = "label2";
             label2.Size = new Size(79, 20);
             label2.TabIndex = 1;
             label2.Text = "Semesters:";
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(24, 68);
-            label1.Name = "label1";
-            label1.Size = new Size(52, 20);
-            label1.TabIndex = 0;
-            label1.Text = "Name:";
             // 
             // dgvResult
             // 
@@ -132,6 +110,7 @@
             dgvResult.RowTemplate.Height = 25;
             dgvResult.Size = new Size(1062, 920);
             dgvResult.TabIndex = 13;
+            dgvResult.CellClick += dgvResult_CellClick;
             // 
             // btnDes
             // 
@@ -232,6 +211,7 @@
             Controls.Add(btnHome);
             Name = "ViewResult";
             Text = "ViewResult";
+            KeyDown += ViewResult_KeyDown;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgvResult).EndInit();
@@ -245,10 +225,8 @@
         private GroupBox groupBox1;
         private ComboBox cboCourses;
         private ComboBox cboSemesters;
-        private TextBox txtName;
         private Label label3;
         private Label label2;
-        private Label label1;
         private DataGridView dgvResult;
         private Button btnDes;
         private Label Code;

@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WinAppTracNghiem.Models;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace WinAppTracNghiem
 {
@@ -19,6 +20,7 @@ namespace WinAppTracNghiem
             InitializeComponent();
             FormBorderStyle = FormBorderStyle.None;
             WindowState = FormWindowState.Maximized;
+            this.KeyDown += new KeyEventHandler(ViewResult_KeyDown);
             LoadResult();
             LoadSemester();
             LoadCourse();
@@ -99,7 +101,6 @@ namespace WinAppTracNghiem
             String? semester = cboSemesters.Text;
             String? course = cboCourses.Text;
             var data = context.Practices.Where(p => p.Status.Equals("Done")
-           && p.Username.Contains(txtName.Text)
            && ((semester != "All") ?
            p.ExamCodeNavigation.Semester.Equals(semester) :
            p.ExamCodeNavigation.Semester.Contains(""))
@@ -188,8 +189,6 @@ namespace WinAppTracNghiem
                             };
                             data.Add(data1);
                         }
-
-
                     }
 
                 }
@@ -207,6 +206,37 @@ namespace WinAppTracNghiem
         private void txtCode_TextChanged(object sender, EventArgs e)
         {
             dgvDes.DataSource = null;
+        }
+
+        String username = null;
+        private void dgvResult_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow selectedRow = dgvResult.Rows[e.RowIndex];
+                object cellValue = selectedRow.Cells[0].Value;
+
+                if (cellValue != null && cellValue != DBNull.Value)
+                {
+                    username = cellValue.ToString();
+
+                    string filterExpression = "ColumnName = '" + username + "'";
+                    (dgvDes.DataSource as DataTable).DefaultView.RowFilter = filterExpression;
+                }
+                else
+                {
+                    username = null;
+                    (dgvDes.DataSource as DataTable).DefaultView.RowFilter = "1=0";
+                }
+            }
+        }
+
+        private void ViewResult_KeyDown(object sender, KeyEventArgs e)
+        {
+            if ((e.Alt && e.KeyCode == Keys.Tab) || (e.KeyCode == Keys.LWin && e.KeyCode == Keys.Tab))
+            {
+                e.Handled = true;
+            }
         }
     }
 }

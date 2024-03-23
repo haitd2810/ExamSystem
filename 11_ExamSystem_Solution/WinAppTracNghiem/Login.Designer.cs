@@ -120,6 +120,7 @@
             Controls.Add(lbUsername);
             Controls.Add(lbCode);
             Name = "Login";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Login";
             ResumeLayout(false);
             PerformLayout();
