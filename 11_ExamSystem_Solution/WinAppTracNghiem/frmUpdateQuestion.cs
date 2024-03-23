@@ -253,7 +253,7 @@ namespace WinAppTracNghiem
         {
             using var context = new WinAppTracNghiemContext();
             bool checkduplicate = false;
-            for (int i = 1; i <= count; i++)
+            for (int i = 1; i < count; i++)
             {
                 string keyTxT = "txtAns" + i;
 
@@ -264,13 +264,13 @@ namespace WinAppTracNghiem
                     TextBox txt = (TextBox)controlsTXT[0];
                     for (int j = i+1; j <= count; j++)
                     {
-                        string keyTxT1 = "txtAns" + i;
+                        string keyTxT1 = "txtAns" + j;
 
-                        Control[] controlsTXT1 = this.Controls.Find(keyTxT, true);
+                        Control[] controlsTXT1 = this.Controls.Find(keyTxT1, true);
                         if (controlsTXT1.Length > 0 && controlsTXT1[0] is TextBox)
                         {
                             TextBox txt1 = (TextBox)controlsTXT1[0];
-                            if (txt.Text.Equals(txt1.Text))
+                            if ((txt.Text).Equals(txt1.Text))
                             {
                                 checkduplicate = true;
                             }
@@ -278,7 +278,7 @@ namespace WinAppTracNghiem
                      }
                 }
             }
-            if (checkduplicate)
+            if (checkduplicate == true)
             {
                 return true;
             }
