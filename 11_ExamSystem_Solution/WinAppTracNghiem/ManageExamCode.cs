@@ -103,15 +103,15 @@ namespace WinAppTracNghiem
         private void btnHome_Click(object sender, EventArgs e)
         {
             this.Hide();
-            //HomeManager f = new HomeManager();
-            //f.ShowDialog();
+            Manager f = new Manager();
+            f.ShowDialog();
         }
 
         private void btnBack_Click(object sender, EventArgs e)
         {
             this.Hide();
-            //HomeManager f = new HomeManager();
-            //f.ShowDialog();
+            Manager f = new Manager();
+            f.ShowDialog();
         }
 
         private void txtUsernameAssign_TextChanged(object sender, EventArgs e)

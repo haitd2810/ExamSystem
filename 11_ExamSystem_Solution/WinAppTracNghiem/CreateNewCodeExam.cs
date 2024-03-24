@@ -64,26 +64,28 @@ namespace WinAppTracNghiem
         private void btnCreate_Click(object sender, EventArgs e)
         {
             if (txtCode.Text.Trim().Equals("") || txtCode.Text.Trim().Contains(" ") || txtCode.Text.Trim().Length > 50)
+
             {
-                MessageBox.Show("Code can not be empty or contain space or more than 50 chars");
+                MessageBox.Show("Code can not be empty or contain space or more than 50 chars!");
                 return;
             }
             Semester s = context.Semesters.Where(se => se.Code.Equals(cboSemesters.SelectedValue)).FirstOrDefault();
             DateTime date = dtpDate.Value;
             if (date < s.BeginDate || date > s.EndDate)
             {
+
                 MessageBox.Show("Date is invalid, it must in range from BeginDate to EndDate");
                 return;
             }
             if ((int)numQuestions.Value > Questions.Count)
             {
-                MessageBox.Show("You haven't added enough question");
+                MessageBox.Show("You haven't added enough question!");
                 return;
             }
-            ExamCode examCode = context.ExamCodes.Where(ex => ex.Code.Equals(txtCode.Text.Trim())).FirstOrDefault();
+            ExamCode examCode = context.ExamCodes.Where(e => e.Code.Equals(txtCode.Text.Trim())).FirstOrDefault();
             if (examCode != null)
             {
-                MessageBox.Show("Code is exist");
+                MessageBox.Show("Code is exist!");
                 return;
             }
             ExamCode exam = new ExamCode
@@ -109,7 +111,7 @@ namespace WinAppTracNghiem
                 context.QuestionOfCodes.Add(qc);
                 context.SaveChanges();
             }
-            MessageBox.Show("Create Successfully");
+            MessageBox.Show("Create Successfully!");
         }
 
         private void cboCourses_SelectedIndexChanged(object sender, EventArgs e)
@@ -170,15 +172,15 @@ namespace WinAppTracNghiem
         private void btnHome_Click(object sender, EventArgs e)
         {
             this.Hide();
-            //HomeManager f = new HomeManager();
-            //f.ShowDialog();
+            Manager f = new Manager();
+            f.ShowDialog();
         }
 
         private void btnBack_Click(object sender, EventArgs e)
         {
             this.Hide();
-            //ExamCodeManager f = new ExamCodeManager();
-            //f.ShowDialog();
+            Manager f = new Manager();
+            f.ShowDialog();
         }
 
     }

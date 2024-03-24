@@ -248,6 +248,7 @@
             // cboStatus
             // 
             cboStatus.FormattingEnabled = true;
+            cboStatus.Items.AddRange(new object[] { "Active", "Not Active" });
             cboStatus.Location = new Point(160, 105);
             cboStatus.Name = "cboStatus";
             cboStatus.Size = new Size(186, 28);
